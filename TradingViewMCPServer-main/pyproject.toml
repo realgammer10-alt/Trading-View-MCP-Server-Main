@@ -1,0 +1,36 @@
+[project]
+name = "tradingview-mcp"
+version = "3.4.1"
+description = "TradingView MCP server for Claude - Multi-asset trading assistant with Pine Script v6 development tools supporting Forex, Stocks, Crypto with 25+ technical indicators"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.12.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+]
+
+[project.scripts]
+tradingview-mcp = "tradingview_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.setuptools.package-data]
+tradingview_mcp = ["*.py"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.black]
+line-length = 88
+target-version = ["py310", "py311", "py312"]
+
+[tool.uv]
+dev-dependencies = []
+package = true
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
